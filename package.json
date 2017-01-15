@@ -1,0 +1,23 @@
+{
+  "name": "__PROJECTNAME",
+  "version": "0.1.0",
+  "dependencies": {
+    "body-parser": "*",
+    "express": "^4.12.2",
+    "jade": "^1.9.2",
+    "jsonwebtoken": "^5.4.1",
+    "socket.io": "^1.3.7",
+    "lodash": "^4.0.0",
+    "superagent": "^1.7.1"
+  },
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-jade": "*",
+    "gulp-jshint": "^1.7.1",
+    "gulp-livereload": "*",
+    "gulp-stylus": "*",
+    "jshint-stylish": "^0.4.0",
+    "eyespect": "*",
+    "nib": "*"
+  }
+}
