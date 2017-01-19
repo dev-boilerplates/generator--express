@@ -15,7 +15,7 @@ app
 
 // middleware
 app
-  .use(express.static(__dirname + '/public'))
+  .use(express.static(__dirname + '/../public')) // improve paths pls
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
 
