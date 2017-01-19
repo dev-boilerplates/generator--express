@@ -1,16 +1,2 @@
-(function ($){
-
-  var location = $('.page').attr('role');
-
-  var routes = {
-
-    index: function(){
-      
-      
-
-    }
-  }
-  
-  init[location]();
-
-})(jQuery)
+console.log('clientside')
+var socket = io.connect('http://localhost:3000')
