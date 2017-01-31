@@ -2,18 +2,13 @@
 
 Start Server
     
-    nodemon server/app.js
+    nodemon server/server.js
 
 
-Develop JS and CSS
+Develop Frontend JS and CSS
 
     gulp
 
 ===
 
-By including `sockets = require(./websocket)` you can pre set up `socket.io` event listeners, which will get instantiated once a connection has been made with the server. 
-
-    ``` 
-    sockets.listen('from-client', function(data) {
-        console.log('recieved from client', data)
-    })
+Web Sockets are now attached to `req.io` via middleware, see specific route usage logic in `api.js`

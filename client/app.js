@@ -1,2 +1,5 @@
 console.log('clientside')
-var socket = io.connect('http://localhost:3000')
+var token = 'this-id'
+var socket = io.connect(window.location.href, {
+    query: { token }
+})

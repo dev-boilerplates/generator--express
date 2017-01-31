@@ -1,18 +1,18 @@
 var express = require('express'),
     router = express.Router(),
-    middleware = require('./middleware')
+    middleware = require('./middleware'),
+    rootController = require('./rootController')
 
-// add middleware
+// add middleware to all routes
 router.use(middleware.simpleAuth)
 
-// Landing
+// index 
 router.route('/')
-  .get(function (req, res){
-
-    res.render('index.jade');
-
+  .get(function (req, res) {
+    // add specific sockets to this route
+    req.io.on('connection', rootController.bind(req))
+    res.render('index.jade')
   })
   
 
-
-module.exports = router;
+module.exports = router

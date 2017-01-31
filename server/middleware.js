@@ -1,9 +1,14 @@
 module.exports = {
-    simpleAuth: function(req, res, next) {
-        /**/
+    inject:function(req,res, next) {
+        req.io = this
         next()
     },
-    pageSetter: function (req, res, next) {
+    handshake: function(socket, next) {
+        socket.CUSTOM_HEADERS = socket.handshake.query // from client
+        next()
+    },
+    simpleAuth: function(req, res, next) {
+        console.log('example middleware--->', req.app.get('jwt-secret'))
         /**/
         next()
     }

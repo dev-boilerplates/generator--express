@@ -2,7 +2,7 @@ var express = require('express'),
     jade = require('jade'),
     bodyParser = require('body-parser'),
     inspect = require('eyespect').inspector(),
-    sockets = require('./websocket')
+    middleware = require('./middleware')
     
 var app = express(),
     server = require('http').createServer(app),
@@ -18,12 +18,14 @@ app
   .use(express.static(__dirname + '/../public')) // improve paths pls
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
+  .use(middleware.inject.bind(io)) // attach io to req.io
 
 // routes
 app
   .use(require('./api'))
 
-sockets.init(io)
-server.listen(3000)
+io.use(middleware.handshake.bind(app)) // attach clientside headers to sockets
 
+server.listen(3000)
 inspect('server started on port 3000')
+
