@@ -8,7 +8,7 @@
     "jsonwebtoken": "^5.4.1",
     "socket.io": "^1.3.7",
     "lodash": "^4.0.0",
-    "superagent": "^1.7.1"
+    "express-session": "*"
   },
   "devDependencies": {
     "gulp": "*",
@@ -19,5 +19,8 @@
     "jshint-stylish": "^0.4.0",
     "eyespect": "*",
     "nib": "*"
+  },
+  "scripts": {
+    "start": "nodemon ./server"
   }
 }
