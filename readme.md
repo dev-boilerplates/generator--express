@@ -9,3 +9,4 @@ Develop Frontend JS and CSS
 
     gulp
 
+Now includes `async` functions for routes.

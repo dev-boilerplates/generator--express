@@ -4,7 +4,8 @@ const express = require('express'),
     inspect = require('eyespect').inspector(),
     Router = require('./routes/router'),
     session = require('express-session'),
-    config = require('./config')
+    config = require('./config'),
+    middleware = require('./utils/middleware')
 
 const app = express(),
     server = require('http').createServer(app)
@@ -21,6 +22,7 @@ app
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
   .use(session(config.session))
+  .use(middleware.cors)
 
 
 // routes
