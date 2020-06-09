@@ -21,6 +21,6 @@
     "nib": "*"
   },
   "scripts": {
-    "start": "nodemon ./server"
+    "start": "nodemon ./server.js"
   }
 }

@@ -9,16 +9,16 @@ const express = require('express'),
 
 const app = express(),
     server = require('http').createServer(app)
-    io = require('socket.io')(server)
+    // io = require('socket.io')(server)
 
 app
-  .set('view engine', jade)
-  .set('jwt-secret', 'monster mash')
+  .set('view engine', 'jade')
+  .set('jwt-secret', config.secret)
   .locals.pretty = true
 
 // middleware
 app
-  .use(express.static(`${__dirname}/public`))
+  .use(express.static('public'))
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
   .use(session(config.session))
@@ -33,5 +33,4 @@ Router(app)
 server.listen(config.port)
 inspect(`server started on port ${config.port}`)
 
-exports.io = io
 exports.app = app
